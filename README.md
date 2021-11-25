@@ -1,2 +1,2 @@
-# RamBoAttack Demonstration
+# RamBoAttack
 A decision-based dense attack
