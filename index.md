@@ -13,7 +13,9 @@ In   our   study,   we   first   deep-dive   into   recent   state-of-the-art  d
 #### AN ILLUSTRATION OF RAMBOATTACK
 
 // ![Figure 1](image/high level and hybrid-approach explain demo.svg#gh-dark-mode-only){:class="img-responsive"}
+
 ![Figure 1](image/high level and hybrid-approach explain demo.svg#gh-dark-mode-only){:height="125%" width="125%"}
+
 // ![Figure 1](image/high level and hybrid-approach explain demo.svg#gh-dark-mode-only){:height="700px" width="400px"}
 
 Figure 1: A pictorial illustration of RamBoAttack to craft an adversarial example. In a targeted attack, the first component (GradEstimation) initializes an attack with a starting image from a target class (e.g. we use a clip art _street lamp_ for illustration) and then manipulates this image to search for adversarial examples that looks like an image from source class e.g _traffic light_. The attack switches to the second component, BlockDescent, when it reaches its own local minimum. BlockDescent helps to redirect away from that local minimum by manipulating multiple blocks---or making local changes to the current adversarial example. Subsequently, the adversarial example crafted by  BlockDescent is refined by the third component (GradEstimation).
