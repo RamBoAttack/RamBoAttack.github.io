@@ -1,6 +1,7 @@
-## Welcome to GitHub Pages of RamBoAttack
+## Welcome to GitHub Page of RamBoAttack
 
 [View on GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io/blob/main/index.md)
+[Our paper: RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit](https://arxiv.org/abs/2112.05282)
 
 #### ABSTRACT
 
@@ -8,12 +9,18 @@ Machine  learning  models  are  critically  susceptibleto  evasion  attacks  fro
 
 In   our   study,   we   first   deep-dive   into   recent   state-of-the-art  decision-based  attacks  in  ICLR  and  S&P  to  highlight  thecostly nature of discovering low distortion adversarial employing approximate  gradient  estimation  methods.  We  develop  a robust class  of query  efficient attacks  capable  of  avoiding  entrapment in a local minimum and misdirections from noisy gradients seen in gradient estimation methods. The attack method we propose, RamBoAttack,  exploits  the  notion  of  Randomized  Block  Coordi-nate Descent to explore the hidden classifier manifold, targeting perturbations  to  manipulate  only  localized  input  features  to address  the  issues  of  gradient  estimation  methods.  Importantly, the RamBoAttack is  demonstrably  more  robust  to  the  different sample inputs available to an adversary and/or the targeted class. Overall,  for  a  given  target  class, RamBoAttackis  demonstrated to be more robust at achieving a lower distortion within a given query  budget.  We  curate  our  extensive  results  using  the  large-scale  high  resolution ImageNet dataset  and  open-source  our attack,  test  samples  and  artifacts  onGitHub
 
+#### A ILLUSTRATION OF RAMBOATTACK
+
+![Figure 1](image/high_level_and_hybrid-approach_explain_4A.svg#gh-dark-mode-only)
+
+Figure 1: A pictorial illustration of RamBoAttack to craft an adversarial example. In a targeted attack, the first component (GradEstimation) initializes an attack with a starting image from a target class (e.g. we use a clip art _street lamp_ for illustration) and then manipulates this image to search for adversarial examples that looks like an image from source class e.g _traffic light_. The attack switches to the second component, BlockDescent, when it reaches its own local minimum. BlockDescent helps to redirect away from that local minimum by manipulating multiple blocks---or making local changes to the current adversarial example. Subsequently, the adversarial example crafted by  BlockDescent is refined by the third component (GradEstimation).
+
 #### VISUALIZATION
 
-![Figure 1](image/gh-hard case visualization-Page-12.svg#gh-dark-mode-only)
+![Figure 2](image/gh-hard case visualization-Page-12.svg#gh-dark-mode-only)
 
-Figure  1:  An  illustration  ofhardcase  (**white stork** to **goldfish**)  versusnon-hardcase  (**white stork** to **digital watch**)  on ImageNet. Adversarial  examples  in non-hard cases  and hard cases  are  yielded  after  50K  and  100K  queries,  respectively.  Except  for  Boundary  attack,  adversarial examples crafted by different attacks in non-hard cases are slightly different whilst in the hard case, our RamBoAttack is able to craft an adversarial example with much smaller distortion than other attacks due to the ability of our BlockDescent formulation to target effective localized perturbations.
+Figure  2:  An  illustration  ofhardcase  (**white stork** to **goldfish**)  versusnon-hardcase  (**white stork** to **digital watch**)  on ImageNet. Adversarial  examples  in non-hard cases  and hard cases  are  yielded  after  50K  and  100K  queries,  respectively.  Except  for  Boundary  attack,  adversarial examples crafted by different attacks in non-hard cases are slightly different whilst in the hard case, our RamBoAttack is able to craft an adversarial example with much smaller distortion than other attacks due to the ability of our BlockDescent formulation to target effective localized perturbations.
 
-![Figure 2](image/gh-hard case visualization-Page-14.svg#gh-dark-mode-only)
+![Figure 3](image/gh-hard case visualization-Page-14.svg#gh-dark-mode-only)
 
-Figure 2: Grad-CAM tool visualizes salient features of the starting image or target class: **digital watch**. Perturbation heat map (PHM) visualizes the normalized perturbation magnitude at each pixel. Comparing different pertur-bations crafted by different attacks highlights that the localized perturbations yielded  by  RamBoAttack  concentrate  on  salient  areas  illustrated  by  GRAD-CAM  and  embeds  these  targeted  perturbations  in  the  source  image  to  fool the classifier to predict the target class; even though, RamBoAttack does not exploit the knowledge of salient regions to generate perturbations.
+Figure 3: Grad-CAM tool visualizes salient features of the starting image or target class: **digital watch**. Perturbation heat map (PHM) visualizes the normalized perturbation magnitude at each pixel. Comparing different pertur-bations crafted by different attacks highlights that the localized perturbations yielded  by  RamBoAttack  concentrate  on  salient  areas  illustrated  by  GRAD-CAM  and  embeds  these  targeted  perturbations  in  the  source  image  to  fool the classifier to predict the target class; even though, RamBoAttack does not exploit the knowledge of salient regions to generate perturbations.
