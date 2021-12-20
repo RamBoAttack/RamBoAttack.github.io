@@ -1,7 +1,8 @@
 ## Welcome to GitHub Page of RamBoAttack
 
-[View on GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io/blob/main/index.md)
-[Our paper: RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit](https://arxiv.org/abs/2112.05282)
+Reproduce our results: [GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io/blob/main/index.md)
+
+Check out our paper: [RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit](https://arxiv.org/abs/2112.05282)
 
 #### ABSTRACT
 
@@ -11,7 +12,7 @@ In   our   study,   we   first   deep-dive   into   recent   state-of-the-art  d
 
 #### A ILLUSTRATION OF RAMBOATTACK
 
-![Figure 1](image/high_level_and_hybrid-approach_explain_4A.svg#gh-dark-mode-only)
+![Figure 1](image/high level and hybrid-approach explain demo.svg#gh-dark-mode-only)
 
 Figure 1: A pictorial illustration of RamBoAttack to craft an adversarial example. In a targeted attack, the first component (GradEstimation) initializes an attack with a starting image from a target class (e.g. we use a clip art _street lamp_ for illustration) and then manipulates this image to search for adversarial examples that looks like an image from source class e.g _traffic light_. The attack switches to the second component, BlockDescent, when it reaches its own local minimum. BlockDescent helps to redirect away from that local minimum by manipulating multiple blocks---or making local changes to the current adversarial example. Subsequently, the adversarial example crafted by  BlockDescent is refined by the third component (GradEstimation).
 
