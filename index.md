@@ -1,8 +1,18 @@
-## Welcome to GitHub Page of RamBoAttack
+## RamBoAttack Against Deep Neural Network
 
 Reproduce our results: [GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io/blob/main/index.md)
 
 Check out our paper: [RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit](https://arxiv.org/abs/2112.05282)
+
+Cite our research: 
+```
+@article{Viet2022,
+    title = {{RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit}},
+    year = {2022},
+    journal = {Network and Distributed Systems Security (NDSS) Symposium 2022},
+    author = {Viet Quoc Vo, Ehsan Abbasnejad, Damith C. Ranasinghe},
+}
+```
 
 #### ABSTRACT
 
