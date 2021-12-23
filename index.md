@@ -40,3 +40,7 @@ Figure  2:  An  illustration  ofhardcase  (**white stork** to **goldfish**)  ver
 ![Figure 3](image/gh-hard case visualization-Page-14.svg#gh-dark-mode-only)
 
 Figure 3: Grad-CAM tool visualizes salient features of the starting image or target class: **digital watch**. Perturbation heat map (PHM) visualizes the normalized perturbation magnitude at each pixel. Comparing different pertur-bations crafted by different attacks highlights that the localized perturbations yielded  by  RamBoAttack  concentrate  on  salient  areas  illustrated  by  GRAD-CAM  and  embeds  these  targeted  perturbations  in  the  source  image  to  fool the classifier to predict the target class; even though, RamBoAttack does not exploit the knowledge of salient regions to generate perturbations.
+
+![Figure 4](image/crafting adv ex visualization.svg#gh-dark-mode-only)
+
+Figure 4: An illustration of different distortion levels produced by RamBoAttack. The first row demonstrates an example from _CIFAR10_ with a starting image of a __dog__ gradually perturbed until it is similar to the source image __car__---the adversarial example. The bottom row demonstrates an example from _ImageNet_ with is a starting image of a __digital watch__ gradually perturbed until it is similar to the source image __white stork__---the adversarial example..
