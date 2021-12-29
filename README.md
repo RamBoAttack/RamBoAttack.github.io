@@ -1,9 +1,6 @@
 
 # README 
 
-### Notes:
-1. The pretrained model for CIFAR-10 can be downloaded from [this repo](https://github.com/cmhcbb/attackbox).
-
 This is for releasing the source code of the paper "Februus: Input Purification Defense Against Trojan Attacks on Deep Neural Network Systems" 
 
 Archived Version: [RamBoAttack](https://arxiv.org/abs/2112.05282)
@@ -48,3 +45,5 @@ python3 test.py
 ## TODO 
 - [ ] add the testing code
 
+## Notes:
+1. The pretrained model for CIFAR-10 can be downloaded from [this repo](https://github.com/cmhcbb/attackbox).
