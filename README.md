@@ -46,5 +46,5 @@ python3 test.py
 ```
   
 ## TODO 
-- [ ] add the training code
+- [ ] add the testing code
 
