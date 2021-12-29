@@ -1,6 +1,6 @@
 ## RamBoAttack Against Deep Neural Network
 
-Reproduce our results: [GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io/blob/main/index.md)
+Reproduce our results: [GitHub](https://github.com/RamBoAttack/RamBoAttack.github.io)
 
 Check out our paper: [RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit](https://arxiv.org/abs/2112.05282)
 
