@@ -43,7 +43,7 @@ python3 test.py
 ```
   
 ## TODO 
-- [ ] add the testing code
+- [ ] add the testing code.
 
 ## Notes:
 1. The pretrained model for CIFAR-10 can be downloaded from [this repo](https://github.com/cmhcbb/attackbox).
