@@ -270,7 +270,7 @@ def load_predefined_set(filename,targeted):
 
     return np_df
 
-def get_evalset(model,dataset,net,input_set,seed,targeted,eval_set):
+def get_evalset(dataset,targeted,eval_set):
     if dataset == 'imagenet':
         if eval_set == 'balance':
             subset_path = './evaluation_set/ImageNet - balance common set - final.csv'
@@ -279,7 +279,6 @@ def get_evalset(model,dataset,net,input_set,seed,targeted,eval_set):
         elif eval_set == 'easyset':
             subset_path = './evaluation_set/ImageNet - easyset - final.csv'
                 
-        output = load_predefined_set(subset_path,targeted)
     elif dataset == 'cifar10':
         if eval_set == 'balance':
             subset_path = './evaluation_set/cifar10 - balance common set - final.csv'
@@ -292,82 +291,10 @@ def get_evalset(model,dataset,net,input_set,seed,targeted,eval_set):
         elif eval_set == 'hardset_D':
             subset_path = './evaluation_set/cifar10 - hardset D (RamBo) - final.csv'
 
-        output = load_predefined_set(subset_path,targeted)
+    output = load_predefined_set(subset_path,targeted)
 
     return output
 
-# ======================== Generate starting img ========================
-def line_search (model, ori_img, ori_label, target_img, target_label, eps, targeted):
-    
-    nquery = 0
-    new_target_img = target_img.clone()
-    new_ori_img = ori_img.clone()
-    
-    target_dist = torch.norm(new_target_img - new_ori_img)
-    
-    if targeted:
-        while target_dist > eps:
-            target_dir = new_target_img - new_ori_img
-            target_dist = torch.norm(new_target_img - new_ori_img)
-            next_target = new_ori_img + 0.5 * target_dir
-            new_label = model.predict_label(next_target)
-            nquery += 1
-            if new_label == target_label: # target attack
-                new_target_img = next_target.clone()
-            else:
-                new_ori_img = next_target.clone()
-    else:
-        while target_dist > eps:
-            target_dir = new_target_img - new_ori_img
-            target_dist = torch.norm(new_target_img - new_ori_img)
-            next_target = new_ori_img + 0.5 * target_dir
-            new_label = model.predict_label(next_target)
-            nquery += 1
-            if new_label != ori_label: # untarget attack
-                new_target_img = next_target.clone()
-            else:
-                new_ori_img = next_target.clone()
-
-    return new_target_img, nquery
-
-def best_init_dir_search(model,ori_img,ori_label, target_label,targeted):
-    
-    eps_ls = 0.1
-    nquery = 0
-    sample_count = 0
-    dmin = np.inf
-    num_samples = 100
-    D = np.zeros(5000)
-    nq = 0
-    best_init_id = 0
-    #for i, (x, y) in enumerate(train_dataset):
-    for i, (x, y) in enumerate(test_dataset):
-        y_pred = model.predict(x)
-        nquery += 1
-        if targeted:
-            if y_pred == target_label:
-                target_img = x
-                adv, nqry = line_search (model, ori_img, ori_label, target_img, target_label, eps_ls, targeted)
-                nquery += nqry
-                dist = torch.norm(adv-ori_img)
-                if dist < dmin:
-                    dmin = dist
-                    D[nq:nquery] = dmin
-                    nq = nquery
-                    best_adv = adv.clone()
-                    print("--------> Found sample %d with distortion %.4f" % (i,dist))
-                    best_init_id = i
-                
-                sample_count += 1
-                if sample_count >= num_samples:
-                    break
-        if i > 500:
-            break       
-    D[nq:nquery] = dmin
-    print("--------> Found the best distortion %.4f" % dmin)
-    
-    return best_adv,nquery, D[:nquery],best_init_id
-   
 # ========================= Export to csv ======================
 
 def export_pd_csv(D,head,key_info,output_path,n_point=None,query_limit=None):
