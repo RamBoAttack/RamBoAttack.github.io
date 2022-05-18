@@ -1,7 +1,7 @@
 
 # README 
 
-This is for releasing the source code of the paper "Februus: Input Purification Defense Against Trojan Attacks on Deep Neural Network Systems" 
+This is for releasing the source code of the paper "RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit" 
 
 Archived Version: [RamBoAttack](https://arxiv.org/abs/2112.05282)
 
@@ -30,17 +30,7 @@ pip3 install -r requirements.txt
 
 # Run the RamBoAttack
 
-There are two ways to run the method:
-
-- The first way is to run step-by-step with the Jupyter Notebook file *RamBoAttack.ipynb* in the main folder. 
-
-- The second way is to run the *test.py* file. This is to run the RamBoAttack on the whole test set for that task.: 
-
-```python
-# For example, to run RamBoAttack on CIFAR10
-cd main
-python3 test.py
-```
+- Run step-by-step with the Jupyter Notebook file *'Tutorial - RamBoAttack - CIFAR10.ipynb'* or *'Tutorial - RamBoAttack - ImageNet.ipynb'*. 
   
 ## TODO 
 - [ ] add the testing code.
