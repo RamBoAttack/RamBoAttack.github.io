@@ -33,9 +33,9 @@ class HSJA(object):
 
         # Set binary search threshold.
         if self.constraint == 'l2':
-                theta = self.gamma / (np.sqrt(d) * d)
+            theta = self.gamma / (np.sqrt(d) * d)
         else:
-                theta = self.gamma / (d ** 2)
+            theta = self.gamma / (d ** 2)
 
         
         # Initialize.
@@ -163,7 +163,7 @@ class HSJA(object):
 
         batch_size = len(images)
         la = np.zeros(batch_size,dtype = int)
-        group = 80#128 # control memory consumption 
+        group = 128 # control memory consumption 
         i = 0
         while i<batch_size:
             imgs = torch.from_numpy(images[i:i+group]).float().cuda()
