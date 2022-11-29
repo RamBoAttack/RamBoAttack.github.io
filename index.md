@@ -6,7 +6,7 @@ Check out our paper: [RamBoAttack: A Robust Query Efficient Deep Neural Network 
 
 Cite our research: 
 ```
-@article{Vo2022,
+@inproceedings{Vo2022,
     title = {RamBoAttack: A Robust Query Efficient Deep Neural Network Decision Exploit},
     year = {2022},
     journal = {Network and Distributed Systems Security (NDSS) Symposium},
